@@ -1,7 +1,7 @@
 package StepDefinationProject;
 
 
-import java.util.List;
+import java.util.List;  
 
 import org.junit.Assert; 
 import org.openqa.selenium.By;
@@ -67,8 +67,7 @@ public void user_enter_the_username_and_password(String un, String pass) {
 public void click_on_login_button() {
 	
 	lp.clickloginbutton();
-	
-	
+		
     
 }
 
@@ -129,7 +128,8 @@ public void click_on_create_button() {
 
 @Then("Enter the following details and click on save Button")
 public void enter_the_following_details_and_click_on_save_button(DataTable contactdata) {
-List<List<String>> contactdetails= contactdata.cells();
+
+	List<List<String>> contactdetails= contactdata.cells();
 	
 addcontact.enterConatctDetails(contactdetails.get(0).get(0), contactdetails.get(0).get(1), contactdetails.get(0).get(2), contactdetails.get(0).get(3));
 	

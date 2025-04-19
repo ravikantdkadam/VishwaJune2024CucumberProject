@@ -1,6 +1,6 @@
 package Utils;
 
-import java.io.File;
+import java.io.File; 
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.time.Duration;
@@ -11,6 +11,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import PageClasses.CreatenewContact;
@@ -23,11 +24,12 @@ public class TestBase {
 	public static WebDriver driver;
 	public static LoginPageClass lp;
 	public static 	CreatenewContact addcontact;
+	
 	 
 		public TestBase()    {          // constructor of Base Class for reading the property file
 
 			try {
-				prop =new Properties();			
+				 	prop =new Properties();		// create empty property 	
 				 
 				 FileInputStream fis = new FileInputStream("D:\\New Workspace\\VishwaJune2024CucumberProject\\src\\main\\java\\Config\\Configuartion.properties");
 				
@@ -47,6 +49,7 @@ public class TestBase {
 				String browsername=prop.getProperty("browser");// read browser property from properties file 
 				
 			
+			
 				if (browsername.equals("Chrome")) {
 					
 					WebDriverManager.chromedriver().setup();
@@ -65,6 +68,7 @@ public class TestBase {
 			     else if (browsername.equals("MicrosoftEdge")) {
 			    	 
 			    	 WebDriverManager.edgedriver().setup();
+			    	 driver= new EdgeDriver();
 			    	 
 			    	 
 			     }
